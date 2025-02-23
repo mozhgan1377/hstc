@@ -4,8 +4,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import moduleAlias from "module-alias";
-import { authMiddleware } from "./modules/auth/auth.middleware.js";
-import routes from "./routes/index.js";
+import { authMiddleware } from "@modules/auth/auth.middleware.js";
+import authRoutes from "@modules/auth/authRoutes.js";
 
 dotenv.config();
 moduleAlias.register();
@@ -19,4 +19,4 @@ app.use(bodyParser.json());
 app.use(authMiddleware);
 
 // Routes
-app.use("/api", routes);
+app.use("/api/auth", authRoutes);
